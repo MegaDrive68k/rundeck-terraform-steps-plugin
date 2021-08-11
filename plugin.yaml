@@ -1,0 +1,92 @@
+name: rundeck-terraform-steps
+rundeckPluginVersion: 2.0
+author: Reiner Acuna Pisani
+description: Rundeck terraform steps
+rundeckCompatibilityVersion: 3.x
+targetHostCompatibility: unix
+license: Apache 2.0
+tags:
+    - script
+    - WorkflowNodeStep
+date: 2021-08-11T13:31:00.234Z
+version: 0.0.1
+providers:
+  # terraform init
+  # https://www.terraform.io/docs/cli/commands/init.html
+  - name: terraform-init
+    service: WorkflowNodeStep
+    title: 'Terraform init'
+    description: 'Initialize a working directory containing Terraform configuration'
+    plugin-type: script
+    script-interpreter: python3 -u
+    script-file: tf-init.py
+    script-args: ${config.path}
+    config:
+      - type: String
+        name: path
+        title: Path
+        description: 'Terraform project path'
+
+  # terraform validate
+  # https://www.terraform.io/docs/cli/commands/validate.html
+  - name: terraform-validate
+    service: WorkflowNodeStep
+    title: 'Terraform validate'
+    description: 'Validates the configuration files in a directory'
+    plugin-type: script
+    script-interpreter: python3 -u
+    script-file: tf-validate.py
+    script-args: ${config.path}
+    config:
+      - type: String
+        name: path
+        title: Path
+        description: 'Terraform project path'
+
+  # terraform get
+  # https://www.terraform.io/docs/cli/commands/get.html
+  - name: terraform-get
+    service: WorkflowNodeStep
+    title: 'Terraform get'
+    description: 'Download and update modules mentioned in the root module'
+    plugin-type: script
+    script-interpreter: python3 -u
+    script-file: tf-get.py
+    script-args: ${config.path}
+    config:
+      - type: String
+        name: path
+        title: Path
+        description: 'Terraform project path'
+
+  # terraform plan
+  # https://www.terraform.io/docs/cli/commands/plan.html
+  - name: terraform-plan
+    service: WorkflowNodeStep
+    title: 'Terraform plan'
+    description: 'Creates an execution plan'
+    plugin-type: script
+    script-interpreter: python3 -u
+    script-file: tf-plan.py
+    script-args: ${config.path}
+    config:
+      - type: String
+        name: path
+        title: Path
+        description: 'Terraform project path'
+
+  # terraform apply
+  # https://www.terraform.io/docs/cli/commands/apply.html
+  - name: terraform-apply
+    service: WorkflowNodeStep
+    title: 'Terraform apply'
+    description: 'Executes the actions'
+    plugin-type: script
+    script-interpreter: python3 -u
+    script-file: tf-apply.py
+    script-args: ${config.path}
+    config:
+      - type: String
+        name: path
+        title: Path
+        description: 'Terraform project path'
