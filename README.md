@@ -4,6 +4,11 @@ This is a plugin to run Terraform commands as steps in Rundeck
 
 ![dragon-ball-fusion-gohan-trunks-770x492](https://user-images.githubusercontent.com/51376003/129080403-794c3f7e-4dcd-47f8-bb2e-37fc6bf8d313.jpg)
 
+## Prerequisites
+
+1. Python 3
+2. Terraform binary reachable by `rundeck` user account.
+
 ## Getting the source
 
 `git clone https://github.com/MegaDrive68k/rundeck-terraform-steps-plugin`
