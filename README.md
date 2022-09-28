@@ -29,7 +29,3 @@ This is a plugin to run Terraform commands as steps in Rundeck
 ![Screenshot_1](https://user-images.githubusercontent.com/51376003/129086538-337288d6-7468-40bc-a2f0-7d19f4d140a2.png)
 
   2. Right now the available actions are: apply, get, init, plan and validate.
-
-## Note
-
-This is an _alpha version_, please use it before on non-prod env.
